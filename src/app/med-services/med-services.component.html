@@ -38,7 +38,7 @@
           <input matInput [(ngModel)]="searchTerm">
           <mat-icon matPrefix>search</mat-icon>
         </mat-form-field>
-        <mat-grid-list [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)" [gutterSize]="'1%'">
+        <mat-grid-list [cols]="breakpoint" rowHeight="{{rh}}" (window:resize)="onResize($event)" [gutterSize]="'1%'">
           <mat-grid-tile dense *ngFor="let service of allServices">
             <mat-card fxLayout="column" style="margin: 1%; padding:1em; height: 90%; width: 100%;">
               <h4 align="center">{{service.name}}

@@ -11,7 +11,7 @@
         <input matInput [(ngModel)]="searchTerm">
         <mat-icon matPrefix>search</mat-icon>
       </mat-form-field>
-      <mat-grid-list [cols]="breakpoint" rowHeight="1:1.25" (window:resize)="onResize($event)" [gutterSize]="'1%'">
+      <mat-grid-list [cols]="breakpoint" rowHeight="{{rh}}" (window:resize)="onResize($event)" [gutterSize]="'1%'">
         <mat-grid-tile dense *ngFor="let doctor of doctors">
           <mat-card fxLayout="column" style="margin: 1%; padding:1em; height: 95%; width: 100%">
             <div fxLayout="column" fxLayoutAlign="start center">

@@ -13,6 +13,7 @@ export class MedServicesComponent {
   medService: MedservicesService;
   searchTerm = '';
   breakpoint: number = 3;
+  rh = '3:1';
 
   ngOnInit() {
     this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
@@ -20,6 +21,7 @@ export class MedServicesComponent {
   
   onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 3;
+    this.rh = (event.target.innerWidth <= 800) ? '1:1' : '3:1';
   }
 
   constructor(medService: MedservicesService) {

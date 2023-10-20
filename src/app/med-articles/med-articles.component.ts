@@ -9,6 +9,7 @@ import { Article } from '../models/article';
 export class MedArticlesComponent {
   articles: Article[];
   breakpoint: number = 3;
+  rh = '4:1';
 
   ngOnInit() {
     this.breakpoint = (window.innerWidth <= 800) ? 1 : 2;
@@ -16,6 +17,7 @@ export class MedArticlesComponent {
   
   onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 2;
+    this.rh = (event.target.innerWidth <= 800) ? '2:1' : '4:1';
   }
 
   constructor() {

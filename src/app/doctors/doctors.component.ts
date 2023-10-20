@@ -12,6 +12,7 @@ export class DoctorsComponent {
   searchTerm = '';
   public doctors: Doctor[];
   breakpoint: number = 3;
+  rh = '1.5:1';
 
   ngOnInit() {
     this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
@@ -19,6 +20,7 @@ export class DoctorsComponent {
   
   onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 3;
+    this.rh = (event.target.innerWidth <= 800) ? '1:1.25' : '1.5 : 1';
   }
   
 
