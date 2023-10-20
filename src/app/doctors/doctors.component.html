@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-header style="justify-content: center; align-items: center;">
+    <mat-card-title>
+      <h2>Список специалистов</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container" fxLayout="column" fxLayoutGap="1%">
+      <mat-form-field>
+        <mat-label>Введите профиль специалиста</mat-label>
+        <input matInput [(ngModel)]="searchTerm">
+        <mat-icon matPrefix>search</mat-icon>
+      </mat-form-field>
+      <mat-grid-list [cols]="breakpoint" rowHeight="1:1.25" (window:resize)="onResize($event)" [gutterSize]="'1%'">
+        <mat-grid-tile dense *ngFor="let doctor of doctors">
+          <mat-card fxLayout="column" style="margin: 1%; padding:1em; height: 95%; width: 100%">
+            <div fxLayout="column" fxLayoutAlign="start center">
+              <div>
+                <img src="assets/images/doctor_avatar.png" class="profile-header-img">
+              </div>
+              <mat-card-title>{{doctor.FIO}}</mat-card-title>
+              <app-star-rating style="color: rgba(0, 0, 0, 0.5); "></app-star-rating>
+              <p>Специализация: {{doctor.Specialization}}
+                <a mat-icon-button #tooltip="matTooltip" matTooltip="{{doctor.SpecializationDesc}}">
+                  <mat-icon>info</mat-icon>
+                </a>
+              </p>
+              <a mat-raised-button color="accent" [routerLink]="['/doctors/', doctor.id]" routerLink="active-link">Перейти в профиль</a>
+            </div>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </mat-card-content>
+</mat-card>
+

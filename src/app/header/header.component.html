@@ -1,0 +1,31 @@
+<mat-toolbar>
+  <img src="assets/images/logo2.png" style="height: 2em">
+  <a fxHide.lt-md mat-button style="font-size: 1em" *ngIf="this.router.url === '/home'" [matMenuTriggerFor]="headers">HealthPoint</a>
+  <a fxHide.lt-md mat-button style="font-size: 1em" *ngIf="this.router.url != '/home'" routerLink="/home">HealthPoint</a>
+  <a fxHide.gt-sm mat-button style="font-size: 1em" [matMenuTriggerFor]="sections">HealthPoint</a>
+  <span class="flex-spacer"></span>
+  <a fxHide.lt-md mat-button routerLink="/doctors" routerLinkActive="active">Врачи</a>
+  <span class="flex-spacer"></span>
+  <a fxHide.lt-md mat-button routerLink="/services" routerLinkActive="active">Услуги</a>
+  <span class="flex-spacer"></span>
+  <a fxHide.lt-md mat-button routerLink="/articles" routerLinkActive="active">Статьи</a>
+  <span class="flex-spacer"></span>
+  <a fxHide.lt-md mat-button routerLink="/contact" routerLinkActive="active">Контакты</a>
+</mat-toolbar>
+
+<mat-menu #headers="matMenu" appearance="fill">
+  <button [ngxScrollTo]="'#card-hello'" mat-menu-item>О проекте</button>
+  <button [ngxScrollTo]="'#card-slider'" mat-menu-item>Популярные услуги</button>
+  <button [ngxScrollTo]="'#card-contact'" mat-menu-item>Контакты</button>
+</mat-menu>
+
+<mat-menu #sections="matMenu" appearance="fill">
+  <a mat-menu-item routerLink="/home" routerLinkActive="active" *ngIf="this.router.url != '/home'">Главная</a>
+  <a mat-menu-item routerLink="/doctors" routerLinkActive="active">Врачи</a>
+  <span class="flex-spacer"></span>
+  <a mat-menu-item routerLink="/services" routerLinkActive="active">Услуги</a>
+  <span class="flex-spacer"></span>
+  <a mat-menu-item routerLink="/articles" routerLinkActive="active">Статьи</a>
+  <span class="flex-spacer"></span>
+  <a mat-menu-item routerLink="/contact" routerLinkActive="active">Контакты</a>
+</mat-menu>

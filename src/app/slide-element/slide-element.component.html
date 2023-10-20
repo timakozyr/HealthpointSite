@@ -1,0 +1,33 @@
+
+<mat-card>
+    <mat-card-header style="justify-content: center; align-items: center;">
+        <mat-card-title>
+            <h2>Популярные услуги</h2>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="container"
+        fxLayout="column"
+        fxLayout.sm="column"
+        fxLayout.xs="column"
+        fxLayoutGap="10px" 
+        fxLayoutGap.xs="0"
+        fxLayoutAlign="center">
+            <div fxLayout="column" fxLayoutAlign="center">
+                <h3>{{highlight.name}}</h3>
+                <div fxLayout="row" style="justify-content: center; align-items: center; max-height:100%">
+                    <button mat-button on-click="pressPrev()" style="padding-top: 25%;padding-bottom: 25%;">
+                        <span class="fa fa-chevron-left fa-lg"></span>
+                    </button>
+                    <span><img mat-card-image style="max-width:100%" src="{{highlight.pic}}" alt={{highlight.name}}></span>
+                    <button mat-button on-click="pressNext()" style="padding-top: 25%;padding-bottom: 25%;">
+                        <span class="fa fa-chevron-right fa-lg"></span>
+                    </button>
+                </div>
+                <div fxLayout="row" style="justify-content: center; align-items: center; max-height:100%">
+                    <p align="justify" style="max-width:80%">{{highlight.description}}</p>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

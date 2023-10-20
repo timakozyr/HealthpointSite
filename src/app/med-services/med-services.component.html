@@ -1,0 +1,55 @@
+<mat-card>
+    <mat-card-header style="justify-content: center; align-items: center;">
+      <mat-card-title>
+        <h2>Список услуг</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <div fxLayout="column">
+        <button mat-button [matMenuTriggerFor]="categories">Фильтр услуг</button>
+        <mat-menu #categories="matMenu" appearance="fill">
+            <button mat-menu-item [matMenuTriggerFor]="services">Осмотры</button>
+            <button mat-menu-item [matMenuTriggerFor]="analyzes">Анализы</button>
+        </mat-menu>
+        <mat-menu #services="matMenu">
+            <ng-template matMenuContent let-data="service">
+                <ng-template ngFor let-item [ngForOf]="filterByCategory('services')">
+                    <div (click) = "$event.stopPropagation()">
+                        <mat-checkbox>{{item.name}}</mat-checkbox>
+                    </div>
+                  </ng-template>
+            </ng-template>
+        </mat-menu>
+        <mat-menu #analyzes="matMenu">
+            <ng-template matMenuContent let-data="service">
+                <ng-template ngFor let-item [ngForOf]="filterByCategory('analyzes')">
+                    <div (click) = "$event.stopPropagation()">
+                        <mat-checkbox>{{item.name}}</mat-checkbox>
+                    </div>
+                  </ng-template>
+            </ng-template>
+        </mat-menu>
+      </div>
+    </mat-card-actions>
+    <mat-card-content>
+      <div class="container" fxLayout="column" fxLayoutGap="1%">
+        <mat-form-field>
+          <mat-label>Введите название услуги</mat-label>
+          <input matInput [(ngModel)]="searchTerm">
+          <mat-icon matPrefix>search</mat-icon>
+        </mat-form-field>
+        <mat-grid-list [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)" [gutterSize]="'1%'">
+          <mat-grid-tile dense *ngFor="let service of allServices">
+            <mat-card fxLayout="column" style="margin: 1%; padding:1em; height: 90%; width: 100%;">
+              <h4 align="center">{{service.name}}
+                <a fxHide.gt-md align="justify" mat-icon-button #tooltip="matTooltip" matTooltip="{{service.description}}">
+                  <mat-icon>info</mat-icon>
+                </a>
+              </h4>
+              <button mat-raised-button color="accent">Записаться</button>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </mat-card-content>
+</mat-card>
