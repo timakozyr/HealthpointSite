@@ -41,7 +41,7 @@
         </mat-form-field>
         <mat-grid-list [cols]="breakpoint" rowHeight="{{rh}}" (window:resize)="onResize($event)" [gutterSize]="'1%'">
           <mat-grid-tile dense *ngFor="let service of allServices">
-            <mat-card fxLayout="column" style="margin: 1%; padding:1em; min-height:90%; max-height: 100%; width: 100%;">
+            <mat-card fxLayout="column" style="margin: 1%; padding:1em; min-height:50%; max-height: 100%; width: 100%;">
               <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutAlign="center center">
                   <h4 align="center">{{service.name}}</h4>
                   <a mat-icon-button #tooltip="matTooltip" matTooltip="{{service.description}}">
