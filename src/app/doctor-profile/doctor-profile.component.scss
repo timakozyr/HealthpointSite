@@ -1,7 +1,7 @@
-/*$lt-gray: #ddd;
+$lt-gray: #ddd;
 $background-dark: #004d40;
-$background-light: #009688;
 $background-pale: #e0f2f1;
+/*$background-light: #009688
 $background-moredark: #d3d1d1;
 $accent-color:        #004d40;*/
 
@@ -19,8 +19,8 @@ $accent-color:        #004d40;*/
 }
 
 .profile-header {
-    //background-color: $background-dark;
-    //color: $background-pale;
+    background-color: var(--primary-darker-color);
+    color: $background-pale;
     margin: 1%;
     padding: 1%;
     -moz-border-radius: 15px;
@@ -71,3 +71,7 @@ $accent-color:        #004d40;*/
     opacity: 0;
     transform: translateY(100%);
   }
+
+  .block-card {
+    background-color: var(--light-bg);
+}

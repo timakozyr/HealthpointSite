@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MedService } from '../models/med-service';
 import { MedservicesService } from '../services/medservices.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AppointmentFormComponent } from '../appointment-form/appointment-form.component';
 
 @Component({
   selector: 'app-med-services',
@@ -21,13 +23,13 @@ export class MedServicesComponent {
   resize(targetWidth) {
     if (targetWidth > this.lgScreen) {
       this.breakpoint = 3;
-      this.rh = '2 : 1';
+      this.rh = '2 : 0.7';
     } else if (targetWidth <= this.lgScreen && targetWidth > this.mdScreen) {
       this.breakpoint = 2;
-      this.rh = '1.25 : 1';
+      this.rh = '1.25 : 0.7';
     } else {
       this.breakpoint = 1;
-      this.rh = '1 : 0.75';
+      this.rh = '1 : 0.7';
     }
   }
 
@@ -39,9 +41,13 @@ export class MedServicesComponent {
     this.resize(event.target.innerWidth);
   }
 
-  constructor(medService: MedservicesService) {
+  constructor(medService: MedservicesService, public dialog: MatDialog) {
     this.medService = medService;
     this.allServices = this.medService.getAllServices();
+  }
+
+  openAppointmentForm() {
+    this.dialog.open(AppointmentFormComponent);
   }
 
   filterByCategory = (category: string) => this.medService.filterByCategory(category);

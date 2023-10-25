@@ -3,4 +3,8 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
     -webkit-box-orient: vertical;
-  }
+}
+
+.block-card {
+  background-color: var(--light-bg);
+}

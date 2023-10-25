@@ -17,10 +17,10 @@ export class MedArticlesComponent {
   resize(targetWidth) {
     if (targetWidth > this.lgScreen) {
       this.breakpoint = 2;
-      this.rh = '2 : 1';
+      this.rh = '2 : 0.75';
     } else if (targetWidth <= this.lgScreen && targetWidth > this.mdScreen) {
       this.breakpoint = 2;
-      this.rh = '1.25 : 1';
+      this.rh = '1.25 : 0.75';
     } else {
       this.breakpoint = 1;
       this.rh = '1 : 0.75';
