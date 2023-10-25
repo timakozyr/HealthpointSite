@@ -12,7 +12,7 @@ export class MedArticlesComponent {
   rh = '4:1';
 
   lgScreen = 1500;
-  mdScreen = 700;
+  mdScreen = 500;
 
   resize(targetWidth) {
     if (targetWidth > this.lgScreen) {
@@ -23,7 +23,7 @@ export class MedArticlesComponent {
       this.rh = '1.25 : 0.75';
     } else {
       this.breakpoint = 1;
-      this.rh = '1 : 0.75';
+      this.rh = '1 : 0.5';
     }
   }
 

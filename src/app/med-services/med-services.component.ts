@@ -27,6 +27,9 @@ export class MedServicesComponent {
     } else if (targetWidth <= this.lgScreen && targetWidth > this.mdScreen) {
       this.breakpoint = 2;
       this.rh = '1.25 : 0.7';
+    } else if (targetWidth < this.mdScreen && targetWidth > 400) {
+      this.breakpoint = 1;
+      this.rh = '1 : 0.5'
     } else {
       this.breakpoint = 1;
       this.rh = '1 : 0.7';

@@ -15,7 +15,7 @@ export class DoctorsComponent {
   rh = '1.5:1';
 
   lgScreen = 1500;
-  mdScreen = 700;
+  mdScreen = 900;
 
   resize(targetWidth) {
     if (targetWidth > this.lgScreen) {
@@ -24,9 +24,12 @@ export class DoctorsComponent {
     } else if (targetWidth <= this.lgScreen && targetWidth > this.mdScreen) {
       this.breakpoint = 2;
       this.rh = '1.25 : 1';
+    } else if (targetWidth <= this.mdScreen && targetWidth > 500) {
+      this.breakpoint = 1;
+      this.rh = '1 : 0.75'
     } else {
       this.breakpoint = 1;
-      this.rh = '1 : 1.25';
+      this.rh = '1 : 1.5';
     }
   }
 
