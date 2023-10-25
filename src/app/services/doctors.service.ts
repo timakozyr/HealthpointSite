@@ -15,6 +15,16 @@ export class DoctorsService {
     this.createDoctor("Игорьев Игорь Игоревич", "Офтальмолог", 3, TEXT_OKULIST);
     this.createDoctor("Дмитриев Дмитрий Дмитриевич", "Отоларинголог", 4, TEXT_LOR);
     this.createDoctor("Сергеев Сергей Сергеевич", "Ортопед", 5, TEXT_ORTOPED);
+    this.createDoctor("Максимов Максим Максимович", "Терапевт", 6, TEXT_TERAPEVT);
+    this.createDoctor("Данилов Даниил Данилович", "Терапевт", 7, TEXT_TERAPEVT);
+    this.createDoctor("Сидоров Сидор Сидорович", "Хирург", 8, TEXT_SURGEON);
+    this.createDoctor("Павлов Павел Павлович", "Хирург", 9, TEXT_SURGEON);
+    this.createDoctor("Егоров Егор Егорович", "Офтальмолог", 10, TEXT_OKULIST);
+    this.createDoctor("Семенов Семен Семенович", "Офтальмолог", 11, TEXT_OKULIST);
+    this.createDoctor("Еленова Елена Еленовна", "Отоларинголог", 12, TEXT_LOR);
+    this.createDoctor("Светланова Светлана Светлановна", "Отоларинголог", 13, TEXT_LOR);
+    this.createDoctor("Маринова Марина Мариновна", "Ортопед", 14, TEXT_ORTOPED);
+    this.createDoctor("Васильева Василиса Васильевна", "Ортопед", 15, TEXT_ORTOPED);
   }
 
   createDoctor(fio: string, spec: string, id: number, descr: string) {
@@ -27,6 +37,10 @@ export class DoctorsService {
   }
 
   getDoctors = () => this.doctors;
+
+  getDoctorsSpecs = () => [...new Set(this.doctors.map(doc => doc.Specialization))];
+
+  getDoctorsBySpec = (spec) => this.doctors.filter(doc => doc.Specialization.toLowerCase() == spec.toLowerCase());
 
   getDoctor = (id) => (id > 0 && id <= this.doctors.length) ? this.doctors[id - 1] : null;
 

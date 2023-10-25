@@ -14,13 +14,28 @@ export class DoctorsComponent {
   breakpoint: number = 3;
   rh = '1.5:1';
 
+  lgScreen = 1500;
+  mdScreen = 700;
+
+  resize(targetWidth) {
+    if (targetWidth > this.lgScreen) {
+      this.breakpoint = 3;
+      this.rh = '1.5 : 1';
+    } else if (targetWidth <= this.lgScreen && targetWidth > this.mdScreen) {
+      this.breakpoint = 2;
+      this.rh = '1.25 : 1';
+    } else {
+      this.breakpoint = 1;
+      this.rh = '1 : 1.25';
+    }
+  }
+
   ngOnInit() {
-    this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
+    this.resize(window.innerWidth);
   }
   
   onResize(event) {
-    this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 3;
-    this.rh = (event.target.innerWidth <= 800) ? '1:1.25' : '1.5 : 1';
+    this.resize(event.target.innerWidth);
   }
   
 

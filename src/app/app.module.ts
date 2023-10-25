@@ -51,6 +51,8 @@ import { ArticleComponent } from './article/article.component';
 import { SlideElementComponent } from './slide-element/slide-element.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { SearchFilterPipe } from './services/search-filter.pipe';
+import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
+import { PopularDoctorsComponent } from './popular-doctors/popular-doctors.component';
 
 
 @NgModule({
@@ -69,7 +71,9 @@ import { SearchFilterPipe } from './services/search-filter.pipe';
     ArticleComponent,
     SlideElementComponent,
     StarRatingComponent,
-    SearchFilterPipe
+    AppointmentFormComponent,
+    SearchFilterPipe,
+    PopularDoctorsComponent,
   ],
   imports: [
     BrowserModule,
