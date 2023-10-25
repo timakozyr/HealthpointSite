@@ -16,12 +16,36 @@
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>Специализация врача</mat-label>
-                        <mat-select [(ngModel)]="appointment.doctor" name="doctor" #doctor="ngModel" required>
-                            <mat-option *ngFor="let doctor of doctors" [value]="doctor">
-                                {{doctor}}
+                        <mat-select [(ngModel)]="appointment.doctorType" name="doctorType" #doctorType="ngModel" required>
+                            <mat-option *ngFor="let doctorType of doctorTypes" [value]="doctorType">
+                                {{doctorType}}
                             </mat-option>
                         </mat-select>
-                        <mat-error *ngIf="doctor.errors?.required">Выберите врача</mat-error>
+                        <mat-error *ngIf="doctorType.errors?.required">Выберите врача</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>ФИО врача</mat-label>
+                        <mat-select [(ngModel)]="appointment.doctorFIO" name="doctorFIO" #doctorFIO="ngModel" required>
+                            <mat-option *ngFor="let doctorFIO of doctorsService.getDoctorNamesBySpec(appointment.doctorType)" [value]="doctorFIO">
+                                {{doctorFIO}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="doctorFIO.errors?.required">Выберите врача</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Тип услуги</mat-label>
+                        <mat-select [(ngModel)]="appointment.medService" name="selectedService" #selectedService="ngModel" required>
+                            <mat-option *ngFor="let service of medService.getAllServicesNames()" [value]="selectedService">
+                                {{service}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="selectedService.errors?.required">Выберите врача</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Дата</mat-label>
+                        <input matInput [matDatepicker]="dp3" disabled [(ngModel)]="appointment.date">
+                        <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+                        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
                     </mat-form-field>
                 </div>
             </mat-dialog-content>

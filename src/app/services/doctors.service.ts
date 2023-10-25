@@ -42,6 +42,8 @@ export class DoctorsService {
 
   getDoctorsBySpec = (spec) => this.doctors.filter(doc => doc.Specialization.toLowerCase() == spec.toLowerCase());
 
+  getDoctorNamesBySpec = (spec) => this.doctors.filter(doc => doc.Specialization.toLowerCase() == spec.toLowerCase()).map(d => d.FIO);
+
   getDoctor = (id) => (id > 0 && id <= this.doctors.length) ? this.doctors[id - 1] : null;
 
 }

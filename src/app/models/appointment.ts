@@ -1,5 +1,7 @@
 export class Appointment {
     username: string = '';
-    doctor: string = '';
-    telnum: string = '';
+    doctorType: string = '';
+    doctorFIO: string = '';
+    medService: string = '';
+    date: any;
 }

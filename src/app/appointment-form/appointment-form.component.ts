@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Appointment } from '../models/appointment';
 import { DoctorsService } from '../services/doctors.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MedservicesService } from '../services/medservices.service';
 
 
 @Component({
@@ -10,14 +11,17 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./appointment-form.component.scss']
 })
 export class AppointmentFormComponent {
-  doctors: string[];
+  doctorTypes: string[];
+  serviceTypes: string[];
   appointment: Appointment;
 
   constructor(
     public dialogRef: MatDialogRef<AppointmentFormComponent>,
-    service: DoctorsService)
+    public doctorsService: DoctorsService,
+    public medService: MedservicesService)
   {
-    this.doctors = service.getDoctors().map(dc => dc.Specialization);
+    this.doctorTypes = doctorsService.getDoctorsSpecs();
+    this.serviceTypes = medService.allServices.map(s => s.name);
     this.appointment = new Appointment;
   }
 

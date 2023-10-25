@@ -22,6 +22,6 @@ export class PopularDoctorsComponent {
   }
 
   openAppointmentForm() {
-    this.dialog.open(AppointmentFormComponent, {width: '500px', height: '450px'});
+    this.dialog.open(AppointmentFormComponent);
   }
 }
